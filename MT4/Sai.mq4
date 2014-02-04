@@ -10,7 +10,6 @@
 //---- input parameters
 extern bool   Enable = true;
 extern int    FontSize = 11;
-extern double Spread = 3.0;
 int    nDigits;
 int    nTimes;
 double LeastPipPoint;
