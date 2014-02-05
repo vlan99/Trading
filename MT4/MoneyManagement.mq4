@@ -117,7 +117,7 @@ int start()
    ObjectCreate("MaxStopLossPips", OBJ_LABEL, 0,0,0,0,0,0,0);
    ObjectSet("MaxStopLossPips", OBJPROP_CORNER, 0);
    ObjectSet("MaxStopLossPips", OBJPROP_XDISTANCE, 0);
-   ObjectSet("MaxStopLossPips", OBJPROP_YDISTANCE, 5);
+   ObjectSet("MaxStopLossPips", OBJPROP_YDISTANCE, 10);
    if (TotalOpenOrderLots > 0) {
       Text_MaxStopLossPips = StringConcatenate("S/L: ", DoubleToStr(MaxStopLossPips, 1), " (", DoubleToStr(TotalOpenOrderLots, 2), ")");
    }
@@ -131,7 +131,7 @@ int start()
    ObjectCreate("MinCapitalSize", OBJ_LABEL, 0,0,0,0,0,0,0);
    ObjectSet("MinCapitalSize", OBJPROP_CORNER, 1);
    ObjectSet("MinCapitalSize", OBJPROP_XDISTANCE, 5);
-   ObjectSet("MinCapitalSize", OBJPROP_YDISTANCE, 5);
+   ObjectSet("MinCapitalSize", OBJPROP_YDISTANCE, 10);
    Text_MinCapitalSize = StringConcatenate("M/C: $",DoubleToStr(MinCapitalSize, 2));
    ObjectSetText("MinCapitalSize", "", FontSize, "Consolas", Orange);
    ObjectSetText("MinCapitalSize", Text_MinCapitalSize);
