@@ -1,7 +1,7 @@
 <chart>
 symbol=GBPUSD
-period=5
-leftpos=64907
+period=30
+leftpos=15324
 digits=5
 scale=4
 graph=1
@@ -17,10 +17,10 @@ days=0
 descriptions=0
 shift_size=50
 fixed_pos=0
-window_left=0
-window_top=371
-window_right=958
-window_bottom=742
+window_left=120
+window_top=120
+window_right=711
+window_bottom=496
 window_type=3
 background_color=0
 foreground_color=16777215
@@ -43,8 +43,8 @@ type=23
 object_name=DashBoard
 period_flags=0
 create_time=1391611293
-description=Downtrends
-color=16776960
+description=Sideways
+color=16443110
 font=Consolas
 fontsize=11
 angle=0
@@ -146,7 +146,7 @@ type=23
 object_name=MaxStopLossPips
 period_flags=0
 create_time=1391611293
-description=S/L: 38.4 (0.01)
+description=S/L: 20.0 (0.01)
 color=16760576
 font=Consolas
 fontsize=11
@@ -213,30 +213,6 @@ color=16748574
 style=0
 weight=1
 period_flags=0
-show_data=1
-</indicator>
-<indicator>
-name=Moving Average
-period=25
-shift=0
-method=0
-apply=1
-color=255
-style=0
-weight=1
-period_flags=15
-show_data=1
-</indicator>
-<indicator>
-name=Moving Average
-period=50
-shift=0
-method=0
-apply=1
-color=16711680
-style=0
-weight=1
-period_flags=15
 show_data=1
 </indicator>
 <indicator>
