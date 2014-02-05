@@ -134,11 +134,11 @@ int start()
    ObjectSet("DashBoard", OBJPROP_YDISTANCE, 5);
    Text_DashBoard = "Sideways";
    ObjectSetText("DashBoard", "", FontSize, "Consolas", Lavender);
-   if (iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1) > iMA(NULL,0,50,0,MODE_SMA,PRICE_OPEN,1) && Open[1] > iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1)) {
+   if (iMA(NULL,0,120,0,MODE_SMA,PRICE_OPEN,1) > iMA(NULL,0,240,0,MODE_SMA,PRICE_OPEN,1) && Open[1] > iMA(NULL,0,120,0,MODE_SMA,PRICE_OPEN,1)) {
       Text_DashBoard = "Uptrends";
       ObjectSetText("DashBoard", "", FontSize, "Consolas", Orange);
    }
-   if (iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1) < iMA(NULL,0,50,0,MODE_SMA,PRICE_OPEN,1) && Open[1] < iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1)) {
+   if (iMA(NULL,0,120,0,MODE_SMA,PRICE_OPEN,1) < iMA(NULL,0,240,0,MODE_SMA,PRICE_OPEN,1) && Open[1] < iMA(NULL,0,120,0,MODE_SMA,PRICE_OPEN,1)) {
       Text_DashBoard = "Downtrends";
       ObjectSetText("DashBoard", "", FontSize, "Consolas", Aqua);
    }
