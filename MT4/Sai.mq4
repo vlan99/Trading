@@ -134,11 +134,11 @@ int start()
    ObjectSet("DashBoard", OBJPROP_YDISTANCE, 5);
    Text_DashBoard = "Sideways";
    ObjectSetText("DashBoard", "", FontSize, "Consolas", Lavender);
-   if (iMA(NULL,0,120,0,MODE_SMA,PRICE_CLOSE,1) > iMA(NULL,0,240,0,MODE_SMA,PRICE_CLOSE,1) && Close[1] > iMA(NULL,0,120,0,MODE_SMA,PRICE_CLOSE,1)) {
+   if (iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1) > iMA(NULL,0,50,0,MODE_SMA,PRICE_OPEN,1) && Open[1] > iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1)) {
       Text_DashBoard = "Uptrends";
       ObjectSetText("DashBoard", "", FontSize, "Consolas", Orange);
    }
-   if (iMA(NULL,0,120,0,MODE_SMA,PRICE_CLOSE,1) < iMA(NULL,0,240,0,MODE_SMA,PRICE_CLOSE,1) && Close[1] < iMA(NULL,0,120,0,MODE_SMA,PRICE_CLOSE,1)) {
+   if (iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1) < iMA(NULL,0,50,0,MODE_SMA,PRICE_OPEN,1) && Open[1] < iMA(NULL,0,25,0,MODE_SMA,PRICE_OPEN,1)) {
       Text_DashBoard = "Downtrends";
       ObjectSetText("DashBoard", "", FontSize, "Consolas", Aqua);
    }
@@ -154,11 +154,11 @@ int start()
    ObjectSetText("SwingRange", Text_SwingRange);
  
    // Lot Risk Management
-   ObjectCreate("MaxLotSize", OBJ_LABEL, 0,0,0,0,0,0,0);
-   ObjectSet("MaxLotSize", OBJPROP_CORNER, 3);
-   ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
-   ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 5);
    if (AvailableLots > 0) {
+      ObjectCreate("MaxLotSize", OBJ_LABEL, 0,0,0,0,0,0,0);
+      ObjectSet("MaxLotSize", OBJPROP_CORNER, 3);
+      ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
+      ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 5);
       Text_MaxLotSize = DoubleToStr(AvailableLots, 2);
       if (TotalOpenOrderLots < MaxRiskLots) {
          ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Gold);
@@ -166,11 +166,6 @@ int start()
       else {
          ObjectSetText("MaxLotSize", "", FontSize, "Consolas", DeepSkyBlue);
       }
-      ObjectSetText("MaxLotSize", Text_MaxLotSize);
-   }
-   else {
-      Text_MaxLotSize = "Cut loss short, let profit run!";
-      ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Yellow);
       ObjectSetText("MaxLotSize", Text_MaxLotSize);
    }
    
