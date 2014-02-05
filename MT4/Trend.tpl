@@ -1,7 +1,7 @@
 <chart>
 symbol=GBPUSD
 period=60
-leftpos=11868
+leftpos=11870
 digits=5
 scale=4
 graph=1
@@ -17,10 +17,10 @@ days=0
 descriptions=0
 shift_size=20
 fixed_pos=0
-window_left=60
-window_top=60
-window_right=651
-window_bottom=436
+window_left=90
+window_top=90
+window_right=681
+window_bottom=466
 window_type=3
 background_color=0
 foreground_color=16777215
@@ -38,51 +38,6 @@ stops_color=255
 height=100
 <indicator>
 name=main
-<object>
-type=23
-object_name=MaxStopLossPips
-period_flags=0
-create_time=1391637821
-description=S/L: 96.1 (0.01)
-color=16760576
-font=Consolas
-fontsize=11
-angle=0
-background=0
-corner=0
-x_distance=0
-y_distance=5
-</object>
-<object>
-type=23
-object_name=MinCapitalSize
-period_flags=0
-create_time=1391637821
-description=M/C: $961.24
-color=42495
-font=Consolas
-fontsize=11
-angle=0
-background=0
-corner=1
-x_distance=5
-y_distance=5
-</object>
-<object>
-type=23
-object_name=SwingRange
-period_flags=0
-create_time=1391637821
-description=S/R: 297.9
-color=7059389
-font=Consolas
-fontsize=11
-angle=0
-background=0
-corner=2
-x_distance=0
-y_distance=5
-</object>
 </indicator>
 <indicator>
 name=Custom Indicator

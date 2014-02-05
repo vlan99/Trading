@@ -107,7 +107,7 @@ int start()
    MarginRequired = MarketInfo(Symbol(),MODE_MARGINREQUIRED) * 0.01;
    
    // Calculate maximum risk lots
-   MaxRiskLots = MathFloor(AccountBalance() / (100 + MarginRequired)) * 0.01;
+   MaxRiskLots = MathFloor(AccountBalance() / (MinCapitalSize + MarginRequired)) * 0.01;
    if (MaxRiskLots==0.0) MaxRiskLots=0.01;
    
    // Calculate available lots
@@ -119,7 +119,7 @@ int start()
    ObjectSet("MaxStopLossPips", OBJPROP_XDISTANCE, 0);
    ObjectSet("MaxStopLossPips", OBJPROP_YDISTANCE, 10);
    if (TotalOpenOrderLots > 0) {
-      Text_MaxStopLossPips = StringConcatenate("S/L: ", DoubleToStr(MaxStopLossPips, 1), " (", DoubleToStr(TotalOpenOrderLots, 2), ")");
+      Text_MaxStopLossPips = StringConcatenate("S/L: ", DoubleToStr(MaxStopLossPips, 1));
    }
    else {
       Text_MaxStopLossPips = StringConcatenate("S/L: ", DoubleToStr(MaxStopLossPips, 1));
@@ -146,7 +146,7 @@ int start()
    ObjectSetText("SwingRange", Text_SwingRange);
    
    // Display maximume lot size available
-   if (AvailableLots > 0) {
+   if (AvailableLots >= 0) {
       ObjectCreate("MaxLotSize", OBJ_LABEL, 0,0,0,0,0,0,0);
       ObjectSet("MaxLotSize", OBJPROP_CORNER, 3);
       ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
@@ -156,7 +156,8 @@ int start()
          ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Gold);
       }
       else {
-         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", DeepSkyBlue);
+         Text_MaxLotSize = DoubleToStr(TotalOpenOrderLots, 2);
+         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lavender);
       }
       ObjectSetText("MaxLotSize", Text_MaxLotSize);
    }
