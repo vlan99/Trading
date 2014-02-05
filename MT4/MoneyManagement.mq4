@@ -133,7 +133,7 @@ int start()
    ObjectSet("MinCapitalSize", OBJPROP_XDISTANCE, 5);
    ObjectSet("MinCapitalSize", OBJPROP_YDISTANCE, 5);
    Text_MinCapitalSize = StringConcatenate("M/C: $",DoubleToStr(MinCapitalSize, 2));
-   ObjectSetText("MinCapitalSize", "", FontSize, "Consolas", Lime);
+   ObjectSetText("MinCapitalSize", "", FontSize, "Consolas", Orange);
    ObjectSetText("MinCapitalSize", Text_MinCapitalSize);
    
    // Display weekly average swing range in pips
