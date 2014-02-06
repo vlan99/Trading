@@ -40,9 +40,8 @@ int init()
 int deinit()
 {
 //----
-   ObjectDelete("MaxStopLossPips");
-   ObjectDelete("MinCapitalSize");
    ObjectDelete("MaxLotSize");
+   ObjectDelete("MaxStopLoss");
    ObjectDelete("SwingRange");
 //----
    return(0);
@@ -56,9 +55,9 @@ int start()
    WindowRedraw();   // now redraw all
 //----
    double SwingRange_MN1 = 0.0, SwingRange_W1 = 0.0, SwingRange_D1 = 0.0, SwingRange_H4 = 0.0, SwingRange_H1 = 0.0, MarginRequired = 0.0;
-   double SwingRange_M30 = 0.0, SwingRange_M15 = 0.0, SwingRange_M5 = 0.0, SwingRange_M1 = 0.0, MaxStopLossPips = 0.0, SwingRange = 0.0;
+   double SwingRange_M30 = 0.0, SwingRange_M15 = 0.0, SwingRange_M5 = 0.0, SwingRange_M1 = 0.0, MaxStopLoss = 0.0, SwingRange = 0.0;
    double MinCapitalSize = 0.0, MaxRiskLots = 0.0, AvailableLots = 0.0, TotalOpenOrderLots = 0.0, TotalOrderRiskLots = 0.0, TotalOrderProfit = 0.0;
-   string Text_MaxStopLossPips = "", Text_MinCapitalSize = "", Text_SwingRange = "", Text_MaxLotSize = "";
+   string Text_MaxStopLoss = "", Text_MinCapitalSize = "", Text_SwingRange = "", Text_MaxLotSize = "";
    
    // Total open order lots without risk
    for(int i = 0; i < OrdersTotal(); i++) {
@@ -98,10 +97,10 @@ int start()
    }
    
    // Calculate maximum stop loss pips
-   MaxStopLossPips = SwingRange_D1;
+   MaxStopLoss = SwingRange_D1;
    
    // Calulate minimum capital size required for 1 mini lot (0.01)
-   MinCapitalSize = MaxStopLossPips / MaxRiskPercentage / 10;
+   MinCapitalSize = MaxStopLoss / MaxRiskPercentage / 10;
    
    // Calculate margin required for 1 mini lot (0.01)
    MarginRequired = MarketInfo(Symbol(),MODE_MARGINREQUIRED) * 0.01;
@@ -113,50 +112,41 @@ int start()
    // Calculate available lots
    AvailableLots = MaxRiskLots - TotalOrderRiskLots;
    
-   // Display maximum stop loss in pips
-   ObjectCreate("MaxStopLossPips", OBJ_LABEL, 0,0,0,0,0,0,0);
-   ObjectSet("MaxStopLossPips", OBJPROP_CORNER, 0);
-   ObjectSet("MaxStopLossPips", OBJPROP_XDISTANCE, 0);
-   ObjectSet("MaxStopLossPips", OBJPROP_YDISTANCE, 10);
-   if (TotalOpenOrderLots > 0) {
-      Text_MaxStopLossPips = StringConcatenate("S/L: ", DoubleToStr(MaxStopLossPips, 1));
-   }
-   else {
-      Text_MaxStopLossPips = StringConcatenate("S/L: ", DoubleToStr(MaxStopLossPips, 1));
-   }
-   ObjectSetText("MaxStopLossPips", "", FontSize, "Consolas", DeepSkyBlue);
-   ObjectSetText("MaxStopLossPips", Text_MaxStopLossPips);
-   
-   // Display minimum capital required for 1 mini lot (0.01)
-   ObjectCreate("MinCapitalSize", OBJ_LABEL, 0,0,0,0,0,0,0);
-   ObjectSet("MinCapitalSize", OBJPROP_CORNER, 1);
-   ObjectSet("MinCapitalSize", OBJPROP_XDISTANCE, 5);
-   ObjectSet("MinCapitalSize", OBJPROP_YDISTANCE, 10);
-   Text_MinCapitalSize = StringConcatenate("M/C: $",DoubleToStr(MinCapitalSize, 2));
-   ObjectSetText("MinCapitalSize", "", FontSize, "Consolas", Orange);
-   ObjectSetText("MinCapitalSize", Text_MinCapitalSize);
-   
    // Display weekly average swing range in pips
    ObjectCreate("SwingRange", OBJ_LABEL, 0,0,0,0,0,0,0);
-   ObjectSet("SwingRange", OBJPROP_CORNER, 2);
-   ObjectSet("SwingRange", OBJPROP_XDISTANCE, 0);
+   ObjectSet("SwingRange", OBJPROP_CORNER, 1);
+   ObjectSet("SwingRange", OBJPROP_XDISTANCE, 5);
    ObjectSet("SwingRange", OBJPROP_YDISTANCE, 5);
    Text_SwingRange = StringConcatenate("S/R: ",DoubleToStr(SwingRange_W1, 1));
-   ObjectSetText("SwingRange", "", FontSize, "Consolas", DarkKhaki);
+   ObjectSetText("SwingRange", "", FontSize, "Consolas", Orange);
    ObjectSetText("SwingRange", Text_SwingRange);
+   
+   // Display maximum stop loss in pips
+   ObjectCreate("MaxStopLoss", OBJ_LABEL, 0,0,0,0,0,0,0);
+   ObjectSet("MaxStopLoss", OBJPROP_CORNER, 1);
+   ObjectSet("MaxStopLoss", OBJPROP_XDISTANCE, 5);
+   ObjectSet("MaxStopLoss", OBJPROP_YDISTANCE, 25);
+   if (TotalOpenOrderLots > 0) {
+      Text_MaxStopLoss = StringConcatenate("S/L:  ", DoubleToStr(MaxStopLoss, 1));
+   }
+   else {
+      Text_MaxStopLoss = StringConcatenate("S/L:  ", DoubleToStr(MaxStopLoss, 1));
+   }
+   ObjectSetText("MaxStopLoss", "", FontSize, "Consolas", DeepSkyBlue);
+   ObjectSetText("MaxStopLoss", Text_MaxStopLoss);
    
    // Display maximume lot size available
    if (AvailableLots >= 0) {
       ObjectCreate("MaxLotSize", OBJ_LABEL, 0,0,0,0,0,0,0);
-      ObjectSet("MaxLotSize", OBJPROP_CORNER, 3);
+      ObjectSet("MaxLotSize", OBJPROP_CORNER, 1);
       ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
-      ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 5);
+      ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 45);
       if (TotalOpenOrderLots < MaxRiskLots) {
-         Text_MaxLotSize = DoubleToStr(AvailableLots, 2);
+         Text_MaxLotSize = StringConcatenate("A/L:  ", DoubleToStr(AvailableLots, 2));
          ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Gold); 
       }
       else {
-         Text_MaxLotSize = DoubleToStr(TotalOpenOrderLots, 2);
+         Text_MaxLotSize = StringConcatenate("O/L:  ", DoubleToStr(TotalOpenOrderLots, 2));
          ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lime);
       }
       ObjectSetText("MaxLotSize", Text_MaxLotSize);
