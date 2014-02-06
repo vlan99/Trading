@@ -116,7 +116,7 @@ int start()
    ObjectSet("SwingRange", OBJPROP_CORNER, 1);
    ObjectSet("SwingRange", OBJPROP_XDISTANCE, 5);
    ObjectSet("SwingRange", OBJPROP_YDISTANCE, 5);
-   Text_SwingRange = StringConcatenate("S/R: ",DoubleToStr(SwingRange_W1, 1));
+   Text_SwingRange = StringConcatenate("W/R: ",DoubleToStr(SwingRange_W1, 1));
    ObjectSetText("SwingRange", "", FontSize, "Consolas", Orange);
    ObjectSetText("SwingRange", Text_SwingRange);
    
