@@ -142,7 +142,7 @@ int start()
       ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
       ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 45);
       if (TotalOpenOrderLots < MaxRiskLots) {
-         Text_MaxLotSize = StringConcatenate("A/L:  ", DoubleToStr(AvailableLots, 2));
+         Text_MaxLotSize = StringConcatenate("M/L:  ", DoubleToStr(AvailableLots, 2));
          ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Gold); 
       }
       else {
