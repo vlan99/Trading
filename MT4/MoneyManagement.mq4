@@ -151,13 +151,13 @@ int start()
       ObjectSet("MaxLotSize", OBJPROP_CORNER, 3);
       ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
       ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 5);
-      Text_MaxLotSize = DoubleToStr(AvailableLots, 2);
       if (TotalOpenOrderLots < MaxRiskLots) {
-         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Gold);
+         Text_MaxLotSize = DoubleToStr(AvailableLots, 2);
+         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Gold); 
       }
       else {
          Text_MaxLotSize = DoubleToStr(TotalOpenOrderLots, 2);
-         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lavender);
+         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lime);
       }
       ObjectSetText("MaxLotSize", Text_MaxLotSize);
    }
