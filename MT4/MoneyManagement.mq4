@@ -56,13 +56,12 @@ int start()
 //----
    double SwingRange_MN1 = 0.0, SwingRange_W1 = 0.0, SwingRange_D1 = 0.0, SwingRange_H4 = 0.0, SwingRange_H1 = 0.0, MarginRequired = 0.0;
    double SwingRange_M30 = 0.0, SwingRange_M15 = 0.0, SwingRange_M5 = 0.0, SwingRange_M1 = 0.0, MaxStopLoss = 0.0, SwingRange = 0.0;
-   double MinCapitalSize = 0.0, MaxRiskLots = 0.0, AvailableLots = 0.0, TotalOpenOrderLots = 0.0, TotalOrderRiskLots = 0.0, TotalOrderProfit = 0.0;
-   string Text_MaxStopLoss = "", Text_MinCapitalSize = "", Text_SwingRange = "", Text_MaxLotSize = "";
+   double MinCapitalSize = 0.0, MaxRiskLots = 0.0, AvailableLots = 0.0, TotalOpenOrderLots = 0.0, TotalOrderRiskLots = 0.0;
+   string Text_MaxLotSize = "", Text_MaxStopLoss = "", Text_SwingRange = "";
    
    // Total open order lots without risk
    for(int i = 0; i < OrdersTotal(); i++) {
       if(!OrderSelect(i, SELECT_BY_POS)) continue;
-      TotalOrderProfit += OrderProfit();
       TotalOpenOrderLots += OrderLots();
       if(OrderStopLoss() != 0) {
          if(OrderType() == OP_BUY && OrderStopLoss() - OrderOpenPrice() >= 0) continue;
