@@ -130,23 +130,17 @@ int start()
    ObjectSetText("MaxStopLoss", Text_MaxStopLoss);
    
    // Display maximume lot size available
-   if (AvailableLots >= 0) {
-      ObjectCreate("MaxLotSize", OBJ_LABEL, 0,0,0,0,0,0,0);
-      ObjectSet("MaxLotSize", OBJPROP_CORNER, 1);
-      ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
-      ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 45);
-      Text_MaxLotSize = StringConcatenate(DoubleToStr(AvailableLots, 2), " <- M/L");
-      ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Gold);
-      
-      if (AvailableLots - TotalOrderRiskLots > 0) {
-         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lime); 
-      }
-      else {
-         ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lavender);
-         Text_MaxLotSize = StringConcatenate(DoubleToStr(TotalOpenOrderLots, 2), " <- O/L");
-      }
-      ObjectSetText("MaxLotSize", Text_MaxLotSize);
+   ObjectCreate("MaxLotSize", OBJ_LABEL, 0,0,0,0,0,0,0);
+   ObjectSet("MaxLotSize", OBJPROP_CORNER, 1);
+   ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
+   ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 45);
+   ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lime);
+   Text_MaxLotSize = StringConcatenate(DoubleToStr(AvailableLots , 2), " <- L/S");
+   if (TotalOrderRiskLots == 0) {
+      ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lavender);
+      Text_MaxLotSize = StringConcatenate(DoubleToStr(MaxRiskLots, 2), " <- L/S");
    }
+   ObjectSetText("MaxLotSize", Text_MaxLotSize);
    
    RefreshRates();   // automatically refresh the chart
    WindowRedraw();   // now redraw all
