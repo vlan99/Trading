@@ -1,9 +1,10 @@
 <chart>
+id=130363024387024795
 symbol=GBPUSD
 period=60
-leftpos=11574
+leftpos=9951
 digits=5
-scale=4
+scale=8
 graph=1
 fore=0
 grid=1
@@ -17,10 +18,10 @@ days=0
 descriptions=0
 shift_size=20
 fixed_pos=0
-window_left=180
-window_top=180
-window_right=1327
-window_bottom=673
+window_left=60
+window_top=60
+window_right=1257
+window_bottom=553
 window_type=3
 background_color=0
 foreground_color=16777215
