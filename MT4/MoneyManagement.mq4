@@ -9,8 +9,8 @@
 #property indicator_chart_window
 
 //---- input parameters
-extern int    FontSize = 11;
-extern double MaxRiskPercentage = 0.01;
+extern int    FontSize = 10;
+extern double MaxRiskPercentage = 0.1;
 int    nDigits;
 int    nTimes;
 double LeastPipPoint;
@@ -113,32 +113,40 @@ int start()
    
    // Display weekly average swing range in pips
    ObjectCreate("SwingRange", OBJ_LABEL, 0,0,0,0,0,0,0);
-   ObjectSet("SwingRange", OBJPROP_CORNER, 1);
+   ObjectSet("SwingRange", OBJPROP_CORNER, 0);
    ObjectSet("SwingRange", OBJPROP_XDISTANCE, 5);
-   ObjectSet("SwingRange", OBJPROP_YDISTANCE, 5);
-   ObjectSetText("SwingRange", "", FontSize, "Consolas", Orange);
-   Text_SwingRange = StringConcatenate(DoubleToStr(SwingRange_W1, 1)," <- W/R");
+   ObjectSet("SwingRange", OBJPROP_YDISTANCE, 15);
+   ObjectSet("SwingRange", OBJPROP_FONT, "Consolas");
+   ObjectSet("SwingRange", OBJPROP_FONTSIZE, FontSize);
+   ObjectSet("SwingRange", OBJPROP_COLOR, BlueViolet);
+   Text_SwingRange = StringConcatenate("S/R: ", DoubleToStr(SwingRange_W1, 1));
    ObjectSetText("SwingRange", Text_SwingRange);
    
    // Display maximum stop loss in pips
    ObjectCreate("MaxStopLoss", OBJ_LABEL, 0,0,0,0,0,0,0);
-   ObjectSet("MaxStopLoss", OBJPROP_CORNER, 1);
+   ObjectSet("MaxStopLoss", OBJPROP_CORNER, 0);
    ObjectSet("MaxStopLoss", OBJPROP_XDISTANCE, 5);
-   ObjectSet("MaxStopLoss", OBJPROP_YDISTANCE, 25);
-   ObjectSetText("MaxStopLoss", "", FontSize, "Consolas", DeepSkyBlue);
-   Text_MaxStopLoss = StringConcatenate(DoubleToStr(MaxStopLoss, 1), " <- S/L");
+   ObjectSet("MaxStopLoss", OBJPROP_YDISTANCE, 35);
+   ObjectSet("MaxStopLoss", OBJPROP_FONT, "Consolas");
+   ObjectSet("MaxStopLoss", OBJPROP_FONTSIZE, FontSize);
+   ObjectSet("MaxStopLoss", OBJPROP_COLOR, Blue);
+   Text_MaxStopLoss = StringConcatenate("S/L: ",DoubleToStr(MaxStopLoss, 1));
    ObjectSetText("MaxStopLoss", Text_MaxStopLoss);
    
    // Display maximume lot size available
    ObjectCreate("MaxLotSize", OBJ_LABEL, 0,0,0,0,0,0,0);
-   ObjectSet("MaxLotSize", OBJPROP_CORNER, 1);
+   ObjectSet("MaxLotSize", OBJPROP_CORNER, 0);
    ObjectSet("MaxLotSize", OBJPROP_XDISTANCE, 5);
-   ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 45);
-   ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lime);
-   Text_MaxLotSize = StringConcatenate(DoubleToStr(AvailableLots , 2), " <- L/S");
+   ObjectSet("MaxLotSize", OBJPROP_YDISTANCE, 55);
+   ObjectSet("MaxLotSize", OBJPROP_FONT, "Consolas");
+   ObjectSet("MaxLotSize", OBJPROP_FONTSIZE, FontSize);
+   ObjectSet("MaxLotSize", OBJPROP_COLOR, Magenta);
+   Text_MaxLotSize = StringConcatenate("L/S: ",DoubleToStr(AvailableLots , 2));
    if (TotalOrderRiskLots == 0) {
-      ObjectSetText("MaxLotSize", "", FontSize, "Consolas", Lavender);
-      Text_MaxLotSize = StringConcatenate(DoubleToStr(MaxRiskLots, 2), " <- L/S");
+      ObjectSet("MaxLotSize", OBJPROP_FONT, "Consolas");
+      ObjectSet("MaxLotSize", OBJPROP_FONTSIZE, FontSize);
+      ObjectSet("MaxLotSize", OBJPROP_COLOR, Lime);
+      Text_MaxLotSize = StringConcatenate("L/S: ",DoubleToStr(MaxRiskLots, 2));
    }
    ObjectSetText("MaxLotSize", Text_MaxLotSize);
    
