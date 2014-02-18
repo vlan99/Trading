@@ -1,10 +1,10 @@
 <chart>
-id=130363024387024795
+id=130363024387024810
 symbol=GBPUSD
 period=60
-leftpos=9953
+leftpos=10220
 digits=5
-scale=4
+scale=8
 graph=1
 fore=0
 grid=1
@@ -20,15 +20,15 @@ shift_size=20
 fixed_pos=0
 window_left=60
 window_top=60
-window_right=648
-window_bottom=393
+window_right=1257
+window_bottom=553
 window_type=3
 background_color=16777215
 foreground_color=0
-barup_color=255
-bardown_color=32768
-bullcandle_color=255
-bearcandle_color=65280
+barup_color=32768
+bardown_color=255
+bullcandle_color=65280
+bearcandle_color=255
 chartline_color=16711935
 volumes_color=14772545
 grid_color=14474460
@@ -44,7 +44,7 @@ name=main
 name=Custom Indicator
 <expert>
 name=MoneyManagement
-flags=403
+flags=275
 window_num=0
 <inputs>
 FontSize=10
