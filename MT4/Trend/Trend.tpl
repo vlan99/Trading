@@ -1,8 +1,8 @@
 <chart>
 id=130374187789150718
 symbol=GBPUSD
-period=1440
-leftpos=2045
+period=10080
+leftpos=507
 digits=5
 scale=8
 graph=0
@@ -18,10 +18,10 @@ days=0
 descriptions=0
 shift_size=50
 fixed_pos=0
-window_left=0
-window_top=0
-window_right=1203
-window_bottom=493
+window_left=90
+window_top=90
+window_right=1256
+window_bottom=583
 window_type=3
 background_color=0
 foreground_color=16777215
@@ -90,7 +90,7 @@ apply=1
 color=255
 style=0
 weight=1
-period_flags=64
+period_flags=192
 show_data=1
 </indicator>
 <indicator>
@@ -102,7 +102,7 @@ apply=1
 color=16711680
 style=0
 weight=1
-period_flags=64
+period_flags=192
 show_data=1
 </indicator>
 <indicator>
