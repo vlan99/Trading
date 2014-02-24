@@ -1,8 +1,8 @@
 <chart>
 id=130374187789150718
 symbol=GBPUSD
-period=10080
-leftpos=507
+period=1440
+leftpos=2016
 digits=5
 scale=8
 graph=0
@@ -18,10 +18,10 @@ days=0
 descriptions=0
 shift_size=50
 fixed_pos=0
-window_left=90
-window_top=90
-window_right=1256
-window_bottom=583
+window_left=120
+window_top=120
+window_right=1286
+window_bottom=613
 window_type=3
 background_color=0
 foreground_color=16777215
@@ -95,10 +95,10 @@ show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=75
+period=60
 shift=0
 method=0
-apply=1
+apply=0
 color=16711680
 style=0
 weight=1
@@ -107,10 +107,10 @@ show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=150
+period=120
 shift=0
 method=0
-apply=1
+apply=0
 color=42495
 style=0
 weight=1
@@ -119,10 +119,10 @@ show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=300
+period=240
 shift=0
 method=0
-apply=1
+apply=0
 color=16748574
 style=0
 weight=1
