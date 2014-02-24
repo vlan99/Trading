@@ -2,7 +2,7 @@
 id=130374187789150718
 symbol=GBPUSD
 period=1440
-leftpos=2016
+leftpos=2017
 digits=5
 scale=8
 graph=0
@@ -86,7 +86,7 @@ name=Moving Average
 period=30
 shift=0
 method=0
-apply=1
+apply=0
 color=255
 style=0
 weight=1
