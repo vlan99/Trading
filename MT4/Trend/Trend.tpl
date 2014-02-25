@@ -1,9 +1,9 @@
 <chart>
 id=130374187789150727
-symbol=GBPUSD
-period=60
-leftpos=7583
-digits=5
+symbol=GBPJPY
+period=1440
+leftpos=1955
+digits=3
 scale=8
 graph=1
 fore=0
@@ -18,10 +18,10 @@ days=0
 descriptions=0
 shift_size=50
 fixed_pos=0
-window_left=90
-window_top=90
-window_right=1262
-window_bottom=583
+window_left=120
+window_top=120
+window_right=1292
+window_bottom=613
 window_type=3
 background_color=0
 foreground_color=16777215
@@ -54,7 +54,7 @@ show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=60
+period=75
 shift=0
 method=0
 apply=0
@@ -66,7 +66,7 @@ show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=120
+period=150
 shift=0
 method=0
 apply=0
@@ -78,7 +78,7 @@ show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=240
+period=300
 shift=0
 method=0
 apply=0
@@ -96,7 +96,7 @@ flags=275
 window_num=0
 <inputs>
 HGrid_Weeks=10
-HGrid_Pips=1000
+HGrid_Pips=5000
 HLine=10061943
 HLine2=10061943
 Enable=true
