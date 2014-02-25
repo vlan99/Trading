@@ -11,6 +11,7 @@
 //---- input parameters
 extern int    FontSize=10;
 extern double MaxRiskPercentage=0.1;
+extern double Spread=6.0;
 int    nDigits;
 int    nTimes;
 double LeastPipPoint;
@@ -54,8 +55,8 @@ int start()
     RefreshRates();   // automatically refresh the chart
     WindowRedraw();   // now redraw all
 //----
-    double SwingRange_MN1 = 0.0, SwingRange_W1 = 0.0, SwingRange_D1 = 0.0, SwingRange_H4 = 0.0, SwingRange_H1 = 0.0, MarginRequired = 0.0;
-    double SwingRange_M30 = 0.0, SwingRange_M15 = 0.0, SwingRange_M5 = 0.0, SwingRange_M1 = 0.0, MaxStopLoss = 0.0;
+    double SwingRange_MN1 = 0.0, SwingRange_W1 = 0.0, SwingRange_D1 = 0.0, SwingRange_H4 = 0.0, SwingRange_H1 = 0.0;
+    double SwingRange_M30 = 0.0, SwingRange_M15 = 0.0, SwingRange_M5 = 0.0, SwingRange_M1 = 0.0, MarginRequired = 0.0, MaxStopLoss = 0.0;
     double MinCapitalSize = 0.0, MaxRiskLots = 0.0, AvailableLots = 0.0, TotalOpenOrderLots = 0.0, TotalOrderRiskLots = 0.0;
     string Text_MaxLotSize= "",Text_MaxStopLoss = "";
 
@@ -100,7 +101,10 @@ int start()
     }
 
     // Calculate maximum stop loss pips
-    MaxStopLoss=SwingRange_W1;
+    if (Period()<PERIOD_D1) 
+       MaxStopLoss=SwingRange_D1+Spread;
+    else
+       MaxStopLoss=SwingRange_W1+Spread;
 
     // Calulate minimum capital size required for 1 mini lot (0.01)
     MinCapitalSize=MaxStopLoss/MaxRiskPercentage/10;

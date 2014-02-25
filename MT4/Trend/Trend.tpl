@@ -1,11 +1,11 @@
 <chart>
-id=130374187789150718
+id=130374187789150727
 symbol=GBPUSD
-period=10080
-leftpos=495
+period=60
+leftpos=7583
 digits=5
 scale=8
-graph=0
+graph=1
 fore=0
 grid=0
 volume=0
@@ -18,10 +18,10 @@ days=0
 descriptions=0
 shift_size=50
 fixed_pos=0
-window_left=120
-window_top=120
-window_right=1286
-window_bottom=613
+window_left=90
+window_top=90
+window_right=1262
+window_bottom=583
 window_type=3
 background_color=0
 foreground_color=16777215
@@ -41,6 +41,54 @@ height=100
 name=main
 </indicator>
 <indicator>
+name=Moving Average
+period=30
+shift=0
+method=0
+apply=0
+color=255
+style=0
+weight=1
+period_flags=80
+show_data=1
+</indicator>
+<indicator>
+name=Moving Average
+period=60
+shift=0
+method=0
+apply=0
+color=16711680
+style=0
+weight=1
+period_flags=80
+show_data=1
+</indicator>
+<indicator>
+name=Moving Average
+period=120
+shift=0
+method=0
+apply=0
+color=36095
+style=0
+weight=1
+period_flags=80
+show_data=1
+</indicator>
+<indicator>
+name=Moving Average
+period=240
+shift=0
+method=0
+apply=0
+color=16748574
+style=0
+weight=1
+period_flags=80
+show_data=1
+</indicator>
+<indicator>
 name=Custom Indicator
 <expert>
 name=roundnumber_grid
@@ -48,7 +96,7 @@ flags=275
 window_num=0
 <inputs>
 HGrid_Weeks=10
-HGrid_Pips=3000
+HGrid_Pips=1000
 HLine=10061943
 HLine2=10061943
 Enable=true
@@ -71,6 +119,7 @@ window_num=0
 <inputs>
 FontSize=10
 MaxRiskPercentage=0.10000000
+Spread=6.00000000
 </inputs>
 </expert>
 shift_0=0
@@ -79,54 +128,6 @@ color_0=0
 style_0=0
 weight_0=0
 period_flags=0
-show_data=1
-</indicator>
-<indicator>
-name=Moving Average
-period=30
-shift=0
-method=0
-apply=0
-color=255
-style=0
-weight=1
-period_flags=64
-show_data=1
-</indicator>
-<indicator>
-name=Moving Average
-period=60
-shift=0
-method=0
-apply=0
-color=16711680
-style=0
-weight=1
-period_flags=64
-show_data=1
-</indicator>
-<indicator>
-name=Moving Average
-period=120
-shift=0
-method=0
-apply=0
-color=42495
-style=0
-weight=1
-period_flags=64
-show_data=1
-</indicator>
-<indicator>
-name=Moving Average
-period=240
-shift=0
-method=0
-apply=0
-color=16748574
-style=0
-weight=1
-period_flags=64
 show_data=1
 </indicator>
 </window>
