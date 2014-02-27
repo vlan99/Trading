@@ -11,7 +11,7 @@
 //---- input parameters
 extern int    FontSize=10;
 extern double MaxRiskPercentage=0.1;
-extern double Spread=6.0;
+extern double Spread=3.0;
 int    nDigits;
 int    nTimes;
 double LeastPipPoint;
@@ -139,7 +139,7 @@ int start()
     
     // Display maximum stop loss in pips
     ObjectCreate("MaxStopLoss",OBJ_LABEL,0,0,0,0,0,0,0);
-    ObjectSet("MaxStopLoss",OBJPROP_CORNER,3);
+    ObjectSet("MaxStopLoss",OBJPROP_CORNER,2);
     ObjectSet("MaxStopLoss",OBJPROP_XDISTANCE,5);
     ObjectSet("MaxStopLoss",OBJPROP_YDISTANCE,5);
     ObjectSet("MaxStopLoss",OBJPROP_FONT,"Consolas");

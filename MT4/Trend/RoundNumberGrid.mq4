@@ -12,7 +12,7 @@ extern int       HGrid_Weeks=10;          // Period over which to calc High/Low 
 extern int       HGrid_Pips=1000;         // Size of grid in Pips (100.0)
 extern color     HLine=LightSlateGray;    // Color of grid
 extern color     HLine2=LightSlateGray;   // Every 100 pips, change grid color to this.
-extern bool      Enable=false;            // true -> disabled & false -> enabled
+extern bool      Enable=true;             // true -> disabled & false -> enabled
 
 
 
