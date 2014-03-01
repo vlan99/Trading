@@ -11,7 +11,7 @@
 //---- input parameters
 extern int    FontSize=10;
 extern double MaxRiskPercentage=0.1;
-extern double Spread=3.0;
+extern double Spread=6.0;
 int    nDigits;
 int    nTimes;
 double LeastPipPoint;
