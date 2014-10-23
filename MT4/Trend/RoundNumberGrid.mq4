@@ -33,6 +33,7 @@ int start()
 {
    //----
    if (!Enable) return(0);
+   if (Period()>=PERIOD_D1) HGrid_Pips*=10;
    if ( true /*lastTime == 0 || CurTime() - lastTime > 5*/ ) {
       firstTime = false;
       lastTime = CurTime();

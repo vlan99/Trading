@@ -1,14 +1,14 @@
 <chart>
 id=130374187789150766
-symbol=XCUUSD
-period=60
-leftpos=10260
-digits=5
+symbol=CORNUSD
+period=10080
+leftpos=492
+digits=3
 scale=4
 graph=1
 fore=0
 grid=0
-volume=1
+volume=0
 scroll=0
 shift=1
 ohlc=1
@@ -20,8 +20,8 @@ shift_size=50
 fixed_pos=0
 window_left=120
 window_top=120
-window_right=693
-window_bottom=431
+window_right=699
+window_bottom=436
 window_type=3
 background_color=0
 foreground_color=16777215
@@ -49,7 +49,7 @@ apply=0
 color=7059389
 style=0
 weight=1
-period_flags=0
+period_flags=144
 show_data=1
 </indicator>
 <indicator>
@@ -61,12 +61,36 @@ apply=0
 color=14772545
 style=0
 weight=1
-period_flags=0
+period_flags=144
 show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=120
+period=25
+shift=0
+method=0
+apply=0
+color=7059389
+style=0
+weight=1
+period_flags=64
+show_data=1
+</indicator>
+<indicator>
+name=Moving Average
+period=50
+shift=0
+method=0
+apply=0
+color=14772545
+style=0
+weight=1
+period_flags=64
+show_data=1
+</indicator>
+<indicator>
+name=Moving Average
+period=350
 shift=0
 method=0
 apply=0
@@ -78,7 +102,7 @@ show_data=1
 </indicator>
 <indicator>
 name=Moving Average
-period=240
+period=700
 shift=0
 method=0
 apply=0
@@ -95,10 +119,11 @@ name=CapitalRiskManagement
 flags=339
 window_num=0
 <inputs>
-CapitalMaxRiskPercent=1.5
+MaxPerRiskPercent=1.5
+MaxCapitalPercent=30.0
 FontSize=10
 HGrid_Weeks=2
-HGrid_Pips=10000
+HGrid_Pips=1000
 HLine=10061943
 HLine2=10061943
 EnableGrid=true
