@@ -2,10 +2,10 @@
 id=130647255695121210
 symbol=GBPJPY
 period=5
-leftpos=19040
+leftpos=20057
 digits=3
 scale=4
-graph=0
+graph=1
 fore=0
 grid=1
 volume=0
@@ -21,18 +21,18 @@ fixed_pos=0
 window_left=762
 window_top=-1
 window_right=1924
-window_bottom=468
-window_type=1
+window_bottom=443
+window_type=3
 background_color=0
 foreground_color=16777215
-barup_color=255
-bardown_color=16776960
+barup_color=65280
+bardown_color=16777215
 bullcandle_color=0
-bearcandle_color=16776960
+bearcandle_color=16777215
 chartline_color=65535
 volumes_color=14772545
 grid_color=10061943
-askline_color=65280
+askline_color=255
 stops_color=42495
 
 <window>
